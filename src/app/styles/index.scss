@@ -5,12 +5,18 @@
 @import "templatesForAll";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 
-.app {
+body {
     font: var(--font-m);
     font-weight: 500;
-    background: var(--bg-color);
     color: var(--primary-color);
+}
+
+.app {
+    background: var(--bg-color);
     min-height: 100vh;
+    font: var(--font-m);
+    font-weight: 500;
+    color: var(--primary-color);
 }
 
 .content-page {
