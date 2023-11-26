@@ -6,4 +6,4 @@ npm
 extractedTranslations
 /storybook-static/
 .loki/report.html
-.loki/loki-report.json
+.loki/report.json
