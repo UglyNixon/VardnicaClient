@@ -70,7 +70,6 @@ export const Modal = (props:ModalProps) => {
                         className={cls.content}
                         onClick={onContentClick}
                     >
-
                         {children}
                     </div>
                 </div>
