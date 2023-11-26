@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import sadCat from 'shared/assets/img/sadCat.jpg';
+
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {
@@ -15,7 +15,7 @@ export const PageError = ({ className }:PageErrorProps) => {
         <div
             className={classNames(cls.PageError, {}, [className])}
         >
-            <img alt="sadCat" src={`${sadCat}`} className={cls.img} />
+
             <div className={cls.top}>
                 <p className={cls.p}>{t('Ooooops')}</p>
 

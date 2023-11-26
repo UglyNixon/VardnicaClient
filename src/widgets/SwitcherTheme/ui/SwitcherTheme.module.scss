@@ -13,10 +13,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(255 255 255);
+    background-color: var(--inverted-bg-color);
     transition: 0.4s;
     border-radius: 10px;
-    border: 2px solid #476160;
+    border: 2px solid var(--bar-border);
 }
 
 .slider::before {
@@ -33,7 +33,7 @@
 
 .input:checked + .slider {
     background-color: #fff;
-    border: 2px solid #476160;
+    border: 2px solid var(--bar-border);
 }
 
 .input:focus + .slider {
