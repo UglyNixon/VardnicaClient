@@ -1,3 +1,35 @@
+.button {
+    outline: none;
+    background: none;
+    border: none;
+
+    & :nth-child(n) {
+        fill: var(--text-secondary);
+    }
+}
+
+.clear {
+    padding: 0.2em;
+    background-color: inherit;
+
+    .button {
+        background-color: inherit;
+    }
+
+    &:hover {
+        .button :nth-child(n) {
+            fill: var(--primary-color);
+        }
+    }
+}
+
+.text {
+    margin-left: 0.5em;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
 .IconButton {
     display: flex;
     flex-direction: row;
@@ -8,7 +40,7 @@
     cursor: pointer;
     color: var(--text-secondary);
 
-    &:active{
+    &:active {
         scale: 0.97;
     }
 
@@ -16,6 +48,7 @@
         .button :nth-child(n) {
             fill: var(--bg-color);
         }
+
         &:not(.clear) {
             background-color: var(--primary-color);
 
@@ -30,37 +63,7 @@
         }
     }
 }
-.clear{
-    padding: 0.2em 0.2em;
-    background-color: inherit;
-    .button {
-        background-color: inherit;
-    }
-    &:hover {
-        .button :nth-child(n) {
-            fill: var(--primary-color);
-        }
-    }
-}
 
-.button {
-    outline: none;
-    background: none;
-    border: none;
-    & :nth-child(n) {
-        fill: var(--text-secondary);
-    }
-
-}
-.text {
-    margin-left: 0.5em;
-    font-weight: 600;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-
-}
-
-.showText{
+.showText {
     opacity: 1;
-
 }

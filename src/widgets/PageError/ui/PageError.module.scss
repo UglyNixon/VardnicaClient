@@ -73,6 +73,7 @@
 
     &:active {
         box-shadow: 3px 3px 5px #3498db, -3px -3px 5px #e74c3c;
+
         &::after {
             transform: rotate(180deg);
         }
