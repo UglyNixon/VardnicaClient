@@ -20,8 +20,8 @@ export const LangSwitcher:FC<LangSwitcherProps> = () => {
             defaultValue={i18n.language || 'RU'}
             onChange={(e) => toggle(e)}
         >
-            <option value="RU" selected={i18n.language === 'RU'}>{t('RU')}</option>
-            <option value="LV" selected={i18n.language === 'LV'}>{t('LV')}</option>
+            <option value="RU">{t('RU')}</option>
+            <option value="LV">{t('LV')}</option>
             {/* <option value="EN">{t('EN')}</option> */}
         </select>
     );
