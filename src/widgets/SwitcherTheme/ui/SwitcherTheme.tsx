@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import cls from './SwitcherTheme.module.scss';
 
 interface SwitcherThemeProps {
@@ -7,7 +7,7 @@ interface SwitcherThemeProps {
 }
 
 export const SwitcherTheme = ({ className }:SwitcherThemeProps) => {
-    const { toggleTheme } = useTheme();
+    const { theme, toggleTheme } = useTheme();
     return (
         <label
             className={classNames(cls.SwitcherTheme, {}, [className])}
@@ -16,6 +16,7 @@ export const SwitcherTheme = ({ className }:SwitcherThemeProps) => {
             <input
                 className={classNames(cls.input, {}, [])}
                 type="checkbox"
+                checked={theme === Theme.DARK}
                 onChange={toggleTheme}
                 id="langInput"
             />
