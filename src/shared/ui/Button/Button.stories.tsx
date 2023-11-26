@@ -4,7 +4,7 @@ import {
     ThemeDecorator,
 } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonTheme } from './Button';
 
 export default {
     title: 'shared/Button',
@@ -20,10 +20,30 @@ const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
     children: 'Text',
-    theme: ThemeButton,
+    themeB: ButtonTheme,
 };
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
+export const Clear = Template.bind({});
+Clear.args = {
     children: 'Text',
+    themeB: ButtonTheme.CLEAR,
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Background = Template.bind({});
+Background.args = {
+    children: 'Text',
+    themeB: ButtonTheme.BACKGROUND,
+};
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    children: '>',
+    size: 'size_m',
+    symbol: true,
+    themeB: ButtonTheme.BACKGROUND,
+};
+export const SizeXL = Template.bind({});
+SizeXL.args = {
+    children: '>',
+    size: 'size_xl',
+    symbol: true,
+    themeB: ButtonTheme.BACKGROUND,
+};

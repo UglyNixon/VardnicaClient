@@ -1,9 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, { useState } from 'react';
-import { IconButton, IconButtonSize, IconColor } from 'shared/ui/IconButton/ui/IconButton';
-import MenuCloseIcon from 'shared/assets/icons/menuClose.svg';
-import { AppLink } from 'shared/ui/AppLink';
-import { LangSwitcher } from 'widgets/LangSwitcher';
+import {
+    IconButton,
+    IconButtonSize,
+    IconColor,
+} from 'shared/ui/IconButton/ui/IconButton';
+import HomeIcon from 'shared/assets/icons/Home.svg';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -20,14 +23,45 @@ export const Sidebar = ({ className }: SidebarProps) => {
             data-testid="Sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-            <IconButton
+            <div className={cls.menu}>
+                <IconButton
+                    size={IconButtonSize.L}
+                    color={IconColor.SECONDARY}
+                    text={collapsed ? '' : 'Home'}
+                    clear={collapsed}
+                >
+                    <HomeIcon />
+                </IconButton>
+                <IconButton
+                    size={IconButtonSize.L}
+                    color={IconColor.SECONDARY}
+                    text={collapsed ? '' : 'Home wqeqwewqeq'}
+                    clear={collapsed}
+                >
+                    <HomeIcon />
+                </IconButton>
+                <IconButton
+                    size={IconButtonSize.L}
+                    color={IconColor.SECONDARY}
+                    text={collapsed ? '' : 'Home'}
+                    clear={collapsed}
+                >
+                    <HomeIcon />
+                </IconButton>
+
+            </div>
+
+            <Button
                 data-testid="Sidebar-toggle"
                 onClick={onToggle}
-                size={IconButtonSize.M}
-                color={IconColor.SECONDARY}
+                className={cls.button}
+                themeB={ButtonTheme.BACKGROUND}
+                size={ButtonSize.XL}
+                symbol
+
             >
-                <MenuCloseIcon />
-            </IconButton>
+                {collapsed ? '>' : '<'}
+            </Button>
         </div>
 
     );

@@ -4,7 +4,7 @@ import cls from './IconButton.module.scss';
 
 export enum IconButtonSize {
     L='size_l',
-    M='size_m',
+    XL='size_xl',
 }
 export enum IconColor {
     MAIN='mainColor',
@@ -16,7 +16,8 @@ interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     text?:string,
     onClick?:()=>void,
     styleAttr?:string,
-    color?:IconColor
+    color?:IconColor,
+    clear?:boolean,
 }
 
 export const IconButton:FC<IconButtonProps> = (props) => {
@@ -27,16 +28,17 @@ export const IconButton:FC<IconButtonProps> = (props) => {
         text,
         onClick,
         color,
+        clear,
         ...otherProps
     } = props;
-    console.log(color);
-    const mods:Record<string, boolean> = {
-        [cls[size]]: true,
+    const mods:Record<string, boolean | string> = {
+        [cls[size]]: size,
+        [cls.clear]: clear,
     };
     return (
         <div
             data-testid="iconButton"
-            className={classNames(cls.IconButton, mods, [])}
+            className={classNames(cls.IconButton, mods, [className])}
         >
             <button
                 {...otherProps}
@@ -46,7 +48,9 @@ export const IconButton:FC<IconButtonProps> = (props) => {
             >
                 {children}
             </button>
-            <div>{text}</div>
+            <div className={classNames(cls.text, { [cls.showText]: !clear }, [])}>
+                {text}
+            </div>
         </div>
     );
 };
