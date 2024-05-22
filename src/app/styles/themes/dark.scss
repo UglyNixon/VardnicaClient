@@ -1,5 +1,6 @@
 .app_dark_theme {
     --bg-color: #3f3f46;
+    --bg-shadow-color: rgba(236, 230, 230, 0.39);
     --inverted-bg-color: #d3e1e0;
     --primary-color: #1fb61f;
     --primary-color-light: rgb(72 170 241 / 50%);
@@ -9,4 +10,5 @@
     --bar-border: #52525b;
     --bar-shadow-color: #3498db7f;
     --text-secondary: #71717a;
+    --text-secondary-light: rgba(114, 114, 122, 0.5);
 }
