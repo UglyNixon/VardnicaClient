@@ -27,13 +27,14 @@ export const IconButton:FC<IconButtonProps> = (props) => {
         size,
         text,
         onClick,
-        color,
+        color = IconColor.MAIN,
         clear,
         ...otherProps
     } = props;
     const mods:Record<string, boolean | string> = {
         [cls[size]]: size,
         [cls.clear]: clear,
+        [cls[color]]: color,
     };
     return (
         <div

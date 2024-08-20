@@ -1,0 +1,106 @@
+.ReqInput {
+    min-width: 300px;
+    padding: 12px 0;
+}
+
+.entryArea {
+    position: relative;
+
+    &.medium {
+        line-height: 56px;
+        height: 56px;
+    }
+
+    &.large {
+        line-height: 80px;
+        height: 80px;
+    }
+}
+
+.input {
+    &.medium {
+        line-height: 56px;
+    }
+
+    &.large {
+        line-height: 80px;
+    }
+
+    position: absolute;
+    width: 100%;
+    outline: none;
+    font-size: var(--font-size-l);
+    padding: 3px 30px;
+    background: transparent;
+    transition: 0.1s ease;
+    z-index: 1;
+}
+
+.outlined {
+    border-radius: 10px;
+    border: 2px solid var(--primary-color-light);
+}
+
+.filled {
+    background-color: var(--bg-shadow-color-light);
+}
+
+.standard,
+.filled {
+    border: none;
+    border-bottom: 2px solid  var(--bg-shadow-color);
+    transition: border-color 0.5s ease-in-out;
+}
+
+.labelLine {
+    position: absolute;
+    font-size: var(--font-size-m);
+    color: var(--text-secondary);
+    padding: 3px 25px;
+    margin: 0 20px;
+    background-color: var(--bg-color);
+    transition: 0.2s ease;
+}
+
+.input:focus,
+.input:valid {
+    color: var(--text-secondary-dark);
+
+    &.outlined {
+        border: 2px solid  var(--primary-color);
+    }
+
+    &.standard {
+        border-color: var(--primary-color-dark);
+    }
+
+    &.filled {
+        border-color: var(--primary-color-dark);
+    }
+}
+
+.input:focus + .labelLine,
+.input:valid + .labelLine {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    transform: translate(-15px, -16px) scale(0.75);
+    z-index: 2;
+    color: var(--primary-color);
+}
+
+.outlined:focus + .labelLine,
+.outlined:valid + .labelLine {
+    color: var(--primary-color);
+}
+
+.filled:focus + .labelLine,
+.filled:valid + .labelLine {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    transform: translate(-15px, -6px) scale(0.7);
+    background-color: transparent;
+    z-index: 2;
+    color: var(--primary-color);
+}

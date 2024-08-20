@@ -7,24 +7,20 @@
         fill: var(--text-secondary);
     }
 }
-.clear {
-    padding: 0.2em;
-    background-color: inherit;
-    .button {
-        background-color: inherit;
-    }
-    &:hover {
-        .button :nth-child(n) {
-            fill: var(--primary-color);
-        }
+
+.mainColor {
+    & :nth-child(n) {
+        fill: var(--inverted-bg-color);
     }
 }
+
 .text {
     margin-left: 0.5em;
     font-weight: 600;
     opacity: 0;
     transition: opacity 0.8s ease;
 }
+
 .IconButton {
     display: flex;
     flex-direction: row;
@@ -34,26 +30,31 @@
     border-radius: 1.2em;
     cursor: pointer;
     color: var(--text-secondary);
+
     &:active {
         scale: 0.97;
     }
+
     &:hover {
-        .button :nth-child(n) {
-            fill: var(--bg-color);
-        }
         &:not(.clear) {
+            .button :nth-child(n) {
+                fill: var(--bg-color);
+            }
+
             background-color: var(--primary-color);
 
-            .button {
-                background-color: var(--primary-color);
-            }
             .text {
                 background-color: var(--primary-color);
                 color: var(--bg-color);
             }
         }
+
+        &.clear {
+            background-color: rgb(0 0 0 / 0%);
+        }
     }
 }
+
 .showText {
     opacity: 1;
 }
