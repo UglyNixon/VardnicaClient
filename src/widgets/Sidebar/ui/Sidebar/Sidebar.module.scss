@@ -24,7 +24,7 @@
     background: var(--sidebar-color);
     top: 45%;
     padding: 2px 8px;
-    left: calc(var(--sidebar-width) - calc(var(--font-line-xl) / 2));
+    left: calc(var(--sidebar-width) - 22px);
     font: var(--font-xl);
     font-weight: bold;
     transition: left 0.3s ease;
@@ -42,6 +42,6 @@
     width: var(--sidebar-width-collapsed);
 
     .button {
-        left: calc(var(--sidebar-width-collapsed) - calc(var(--font-line-xl) / 2));
+        left: calc(var(--sidebar-width-collapsed) - 22px);
     }
 }

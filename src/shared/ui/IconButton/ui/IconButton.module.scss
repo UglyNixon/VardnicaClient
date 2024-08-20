@@ -8,18 +8,9 @@
     }
 }
 
-.clear {
-    padding: 0.2em;
-    background-color: inherit;
-
-    .button {
-        background-color: inherit;
-    }
-
-    &:hover {
-        .button :nth-child(n) {
-            fill: var(--primary-color);
-        }
+.mainColor {
+    & :nth-child(n) {
+        fill: var(--inverted-bg-color);
     }
 }
 
@@ -45,21 +36,21 @@
     }
 
     &:hover {
-        .button :nth-child(n) {
-            fill: var(--bg-color);
-        }
-
         &:not(.clear) {
-            background-color: var(--primary-color);
-
-            .button {
-                background-color: var(--primary-color);
+            .button :nth-child(n) {
+                fill: var(--bg-color);
             }
+
+            background-color: var(--primary-color);
 
             .text {
                 background-color: var(--primary-color);
                 color: var(--bg-color);
             }
+        }
+
+        &.clear {
+            background-color: rgb(0 0 0 / 0%);
         }
     }
 }

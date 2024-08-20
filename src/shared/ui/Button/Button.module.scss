@@ -1,24 +1,14 @@
 .Button {
     cursor: pointer;
-    color: var(--primary-color);
-    padding: 0.1em 1.2em;
-
-    &:hover {
-        color: var(--primary-color-light);
-    }
-}
-
-.clear {
+    position: relative;
+    display: inline-block;
+    padding: 0.3rem 1.6rem;
     border: none;
-    padding: 0;
-    background: none;
     outline: none;
-}
-
-.background {
-    background: var(--bg-color);
-    border: 1px solid var(--bar-border);
-    border-radius: 1em;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .square {
@@ -26,27 +16,88 @@
 }
 
 .size_s {
-    width: var(--font-line-s);
-    height: var(--font-line-s);
     font: var(--font-s);
 }
 
 .size_m {
-    width: var(--font-line-m);
-    height: var(--font-line-m);
     font: var(--font-m);
 }
 
 .size_l {
-    width: var(--font-line-l);
-    height: var(--font-line-l);
     font: var(--font-l);
 }
 
 .size_xl {
-    width: var(--font-line-xl);
-    height: var(--font-line-xl);
     font: var(--font-xl);
+}
+
+.ripple {
+    z-index: 100;
+    position: absolute;
+    background: white;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: ripple-anim 0.8s linear infinite;
+}
+
+.clear {
+    background: none;
+    font-weight: 500;
+
+    .ripple {
+        background: var(--bg-shadow-color);
+    }
+}
+
+.clear:hover {
+    background-color: var(--bg-shadow-color-light);
+}
+
+.background {
+    background: var(--bg-color);
+    font-weight: 500;
+    border: 1px solid var(--bar-border);
+
+    .ripple {
+        background: var(--bg-shadow-color);
+    }
+}
+
+.background:hover {
+    border-color: var(--primary-color);
+}
+
+.backgroundInverted {
+    background-color: var(--primary-color);
+    transition: background-color 0.5s ease;
+    color: var(--bg-color);
+    box-shadow:
+        0 3px 1px -2px rgb(0 0 0 / 20%),
+        0 2px 2px 0 rgb(0 0 0 / 14%),
+        0 1px 5px 0 rgb(0 0 0 / 12%);
+
+    &:hover {
+        background-color: var(--primary-color-dark);
+    }
+}
+
+@keyframes ripple-anim {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.7;
+    }
+
+    25% {
+        opacity: 0.2;
+    }
+
+    100% {
+        width: 20rem;
+        height: 20rem;
+        opacity: 0;
+    }
 }
 
 .symbol {
