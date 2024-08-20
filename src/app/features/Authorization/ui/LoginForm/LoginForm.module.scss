@@ -6,7 +6,7 @@
     min-width: 400px;
     padding: 0 40px;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 90px 90px 120px auto;
+    grid-template-rows: 100px 90px 90px 40px 80px auto;
     grid-template-areas:
         "h1"
         "input1"
@@ -39,4 +39,8 @@
     text-align: center;
     align-self: end;
     justify-content: start;
+}
+.error{
+    text-align: center;
+    color: red;
 }

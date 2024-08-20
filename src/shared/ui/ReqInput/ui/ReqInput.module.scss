@@ -104,3 +104,16 @@
     z-index: 2;
     color: var(--primary-color);
 }
+.passIcon{
+    &:nth-child(n){
+        max-width: 26px;
+        max-height: 28px;
+    }
+    width: 26px;
+    height: 28px;
+    padding: 0;
+    position: absolute;
+    right:4px;
+    top: 24px;
+    z-index: 3;
+}

@@ -1,6 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, useState } from 'react';
+import { IconButton } from 'shared/ui/IconButton';
+import { IconButtonSize, IconColor } from 'shared/ui/IconButton/ui/IconButton';
+import Eye from 'shared/assets/icons/eye.svg';
+import EyeOff from 'shared/assets/icons/eyeOff.svg';
 import cls from './ReqInput.module.scss';
 
 export enum ReqInputSize{
@@ -43,11 +47,16 @@ export const ReqInput = (props:ReqInputProps) => {
     const onChangeHandler = (e:React.ChangeEvent<HTMLInputElement>):void => {
         onChange?.(e.target.value);
     };
+    const [show, setShow] = useState(false);
+    const showPassword = () => {
+        setShow((show) => !show);
+    };
+
     return (
         <div className={classNames(cls.ReqInput, {}, [className, cls[size]])}>
             <div className={classNames(cls.entryArea, mods, [cls[size]])}>
                 <input
-                    type={type}
+                    type={show ? 'text' : type}
                     className={classNames(cls.input, mods, [cls[size], cls[theme]])}
                     required
                     value={value}
@@ -56,6 +65,20 @@ export const ReqInput = (props:ReqInputProps) => {
                 <div className={classNames(cls.labelLine, mods, [cls[size]])}>
                     {t(placeholder)}
                 </div>
+                {type === 'password'
+                    && (
+                        <div className={classNames(cls.passIcon)}>
+                            <IconButton
+                                onClick={showPassword}
+                                size={IconButtonSize.L}
+                                color={IconColor.SECONDARY}
+                                clear
+                            >
+                                {show ? <Eye /> : <EyeOff />}
+
+                            </IconButton>
+                        </div>
+                    )}
             </div>
         </div>
     );

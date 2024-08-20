@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { WordsPage } from 'pages/WordsPage';
 
 export default {
-    title: 'pages/MainPage',
+    title: 'pages/WordPage',
     component: WordsPage,
     argTypes: {
         backgroundColor: { control: 'color' },
