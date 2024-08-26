@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { ReqInput } from 'shared/ui/ReqInput';
 import { ReqInputSize, ReqInputTheme } from 'shared/ui/ReqInput/ui/ReqInput';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getLoginState,
 } from 'app/features/Authorization/model/selectors/getLoginState/geLoginState';
+import { getUserState } from 'app/entities/User/model/selector/userSelector';
 import {
     loginByUserName,
 } from '../../model/services/loginByUserName/loginByUserName';
@@ -28,6 +29,7 @@ export const LoginForm = memo((props:LoginFormProps) => {
     const {
         email, password, isLoading, error,
     } = useSelector(getLoginState);
+    const { refresh_token } = useSelector(getUserState);
     const onChangeLogin = useCallback((value:string) => {
         dispatch(loginActions.setLogin(value));
     }, [dispatch]);
@@ -40,7 +42,12 @@ export const LoginForm = memo((props:LoginFormProps) => {
     } = props;
     const onLoginClick = useCallback(() => {
         dispatch(loginByUserName({ email, password }));
-    }, [email, password, dispatch]);
+    }, [email, password, dispatch, isLoading, onClose]);
+    useEffect(() => {
+        if (!isLoading && refresh_token) {
+            onClose();
+        }
+    }, [refresh_token, isLoading, onClose]);
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
             <div className={classNames(cls.container)}>
@@ -67,7 +74,7 @@ export const LoginForm = memo((props:LoginFormProps) => {
                 />
 
                 <div className={cls.error}>
-                    {error && t('Неверная почта или пароль')}
+                    {error && `${error}`}
                 </div>
 
                 <div className={cls.buttonGroup}>

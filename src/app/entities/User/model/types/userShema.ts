@@ -1,8 +1,11 @@
 export interface User {
-    id:string;
-    login: string;
+    id:number;
+    email: string;
     name: string;
-    role: string;
+    roles: string;
+    access_token:string;
+    refresh_token:string;
+    username:string;
 }
 
 export interface UserSchema{

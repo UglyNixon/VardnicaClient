@@ -1,0 +1,58 @@
+.Modal {
+  position: fixed;
+  width: 300px;
+  top: -90px;
+  left: calc(50% - 150px);
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  60%{
+    top:14px;
+  }
+  100% {
+    top: 8px;
+    opacity: 1;
+  }
+}
+
+.overlay {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  position: relative;
+  padding: 20px 30px;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.3s transform;
+  transform: scale(0.8);
+  max-width: 90%;
+}
+
+.opened {
+  opacity: 1;
+  pointer-events: auto;
+  animation :slideInFromTop 0.3s forwards;
+  z-index: var(--modal-z-index);
+  .content {
+    transform: scale(1);
+  }
+}
+
+.isClosing {
+  .content {
+    transform: scale(0.2);
+  }
+}

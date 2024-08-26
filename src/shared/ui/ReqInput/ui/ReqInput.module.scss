@@ -7,7 +7,7 @@
     position: relative;
 
     &.medium {
-        line-height: 56px;
+        line-height: calc(var(--font-size-l) * 2);
         height: 56px;
     }
 
@@ -19,7 +19,7 @@
 
 .input {
     &.medium {
-        line-height: 56px;
+        line-height: calc(var(--font-size-l) * 2);
     }
 
     &.large {
@@ -30,13 +30,16 @@
     width: 100%;
     outline: none;
     font-size: var(--font-size-l);
-    padding: 3px 30px;
+    padding: 5px 30px 0px 40px;
     background: transparent;
     transition: 0.1s ease;
     z-index: 1;
 }
 
 .outlined {
+    &.medium {
+        font-size: var(--font-size-m);
+    }
     border-radius: 10px;
     border: 2px solid var(--primary-color-light);
 }
@@ -105,15 +108,10 @@
     color: var(--primary-color);
 }
 .passIcon{
-    &:nth-child(n){
-        max-width: 26px;
-        max-height: 28px;
-    }
     width: 26px;
     height: 28px;
-    padding: 0;
     position: absolute;
     right:4px;
-    top: 24px;
+    top: 26px;
     z-index: 3;
 }

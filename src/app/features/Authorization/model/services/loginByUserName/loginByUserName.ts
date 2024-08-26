@@ -1,7 +1,9 @@
 import axios from 'axios';
 import type { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { User } from 'app/entities/User';
+import { User, userActions } from 'app/entities/User';
+import i18n from 'shared/config/i18n/i18n';
+import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
 
 interface LoginDto{
         email:string;
@@ -15,10 +17,12 @@ export const loginByUserName = createAsyncThunk<User, LoginDto, {rejectValue:str
             if (!response.data) {
                 throw new Error('No data');
             }
+            localStorage.setItem(USER_LOCAL_STORAGE_KEY, response.data.access_token);
+            thunkAPI.dispatch(userActions.setAuthData(response.data));
+            document.cookie = `token=${response.data.refresh_token}`;
             return response.data;
         } catch (error:AxiosError | any) {
-            const message:string = (error.response?.data?.message as string) || 'Unexpected error';
-            return thunkAPI.rejectWithValue(message);
+            return thunkAPI.rejectWithValue(i18n.t('Неверная почта или пароль'));
         }
     },
 );
